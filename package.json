@@ -12,6 +12,8 @@
   "license": "ISC",
   "dependencies": {
     "express": "^4.18.1",
+    "resize-image": "^0.1.0",
+    "sharp": "^0.31.0",
     "tslog": "^3.3.4"
   },
   "devDependencies": {
