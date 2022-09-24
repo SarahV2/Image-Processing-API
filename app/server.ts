@@ -1,4 +1,5 @@
 import router from "./routes/imageRoutes";
+import { logger } from "./utils/logging";
 
 const express = require('express');
 
@@ -8,5 +9,5 @@ app.use('/api', router)
 
 const port = 8000
   app.listen(port, () => {
-    console.log(`[server]: Server is running at https://localhost:${port}`);
+    logger.info(`[server]: Server is running at https://localhost:${port}`);
   });
