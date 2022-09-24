@@ -2,6 +2,7 @@ import express, { Request, Response } from "express";
 import { processImage } from "../../imageProcessor";
 import ApiAccessLogger from "../../utils/logging";
 import { logger } from "../../utils/logging";
+
 const router = express.Router();
 
 router.get("/image", ApiAccessLogger, async (req: Request, res: Response) => {
@@ -9,12 +10,12 @@ router.get("/image", ApiAccessLogger, async (req: Request, res: Response) => {
   let width = req.query.width as string;
   let height = req.query.height as string;
 
-  if (!width) {
+  if (!width) 
     width = "200";
-  }
-  if (!height) {
+  
+  if (!height) 
     height = "200";
-  }
+  
   try{
   const result = await processImage(
     filename,
@@ -28,7 +29,7 @@ router.get("/image", ApiAccessLogger, async (req: Request, res: Response) => {
       logger.error(error.message)
       res.status(400).send({"Error":error.message})
     }
-    else{
+    else {
       res.send('An error occurred while attempting to process your request')
     }
   }
