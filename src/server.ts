@@ -1,7 +1,6 @@
 import router from "./routes/imageRoutes";
 import { logger } from "./utils/logging";
-
-const express = require("express");
+import express from "express";
 
 const app = express();
 

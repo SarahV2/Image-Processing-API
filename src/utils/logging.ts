@@ -1,13 +1,12 @@
-import { Request, Response } from 'express'
+import { Request, Response } from "express";
 import { Logger } from "tslog";
 
-export const logger: Logger = new Logger({ name: "myLogger" });
+export const logger: Logger = new Logger({ name: "logger" });
 
+const ApiAccessLogger = (req: Request, res: Response, next: Function): void => {
+  let { url } = req;
+  logger.info(`[API Access] ${url} was visited`);
+  next();
+};
 
-const ApiAccessLogger = (req: Request, res: Response,next: Function):void=>{
-    let {url} = req
-    logger.info(`[API Access] ${url} was visited`)
-    next()
-}
-
-export default ApiAccessLogger
+export default ApiAccessLogger;

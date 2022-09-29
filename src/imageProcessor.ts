@@ -1,15 +1,16 @@
 import fs from "fs";
 import * as fsExtra from "fs-extra";
 import { logger } from "./utils/logging";
+import path from "path";
+import sharp from "sharp";
 
-const __basename = require("path").resolve(__dirname, "..");
+const __basename = path.resolve(__dirname, "..");
 
 export const resizeImage = async (
   fileName: string,
   width: number = 200,
   height: number = 200
 ) => {
-  const sharp = require("sharp");
   const newFilePath = `${__basename}/src/assets/thumbnail/${fileName}_thumbnail_${width}x${height}.jpg`;
   try {
     await sharp(__basename + `/src/assets/source/${fileName}.jpg`)
