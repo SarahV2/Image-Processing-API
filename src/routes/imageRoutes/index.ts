@@ -1,18 +1,18 @@
-import express, { Request, Response } from "express";
-import { deleteThumbnails, processImage } from "../../imageProcessor";
-import ApiAccessLogger from "../../utils/logging";
-import { logger } from "../../utils/logging";
+import express, { Request, Response } from 'express';
+import { deleteThumbnails, processImage } from '../../imageProcessor';
+import ApiAccessLogger from '../../utils/logging';
+import { logger } from '../../utils/logging';
 
 const router = express.Router();
 
-router.get("/image", ApiAccessLogger, async (req: Request, res: Response) => {
+router.get('/image', ApiAccessLogger, async (req: Request, res: Response) => {
   const filename = req.query.filename as string;
   let width = req.query.width as string;
   let height = req.query.height as string;
 
-  if (!width) width = "200";
+  if (!width) width = '200';
 
-  if (!height) height = "200";
+  if (!height) height = '200';
 
   try {
     const result = await processImage(
@@ -26,14 +26,14 @@ router.get("/image", ApiAccessLogger, async (req: Request, res: Response) => {
       logger.error(error.message);
       res.status(400).send({ Error: error.message });
     } else {
-      res.send("An error occurred while attempting to process your request");
+      res.send('An error occurred while attempting to process your request');
     }
   }
 });
 
-router.delete("/image", ApiAccessLogger, (req: Request, res: Response) => {
+router.delete('/image', ApiAccessLogger, (req: Request, res: Response) => {
   deleteThumbnails();
-  res.status(200).send("Successfully deleted all thumbnails");
+  res.status(200).send('Successfully deleted all thumbnails');
 });
 
 export default router;
