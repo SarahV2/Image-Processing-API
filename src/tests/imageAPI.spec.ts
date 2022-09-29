@@ -8,11 +8,11 @@ describe('GET /image endpoint', () => {
   it('returns a 400 response if no file name was provided', async () => {
     const response = await request.get('/api/image');
     expect(response.status).toBe(400);
-    expect(response.body).toEqual({ Error: 'Image do not exist!' });
+    expect(response.body).toEqual({ Error: 'Image does not exist!' });
   });
 
   it('returns a 200 response if filename of an existing image is provided', async () => {
-    const response = await request.get('/api/image?filename=nature');
+    const response = await request.get('/api/image?filename=test_clouds');
     expect(response.status).toBe(200);
   });
 });
@@ -20,8 +20,11 @@ describe('GET /image endpoint', () => {
 describe('DELETE /image endpoint', () => {
   it('successfully deletes all created thumbnails', async () => {
     // process an image then check if it exists
-    await resizeImage('nature', 200, 200);
-    let check = checkForExistingImage('nature_thumbnail_200x200', 'output');
+    await resizeImage('test_clouds', 200, 200);
+    let check = checkForExistingImage(
+      'test_clouds_thumbnail_200x200',
+      'output'
+    );
     expect(check).toBeTruthy();
 
     // call DELETE endpoint to delete all thumbnails/processed images
@@ -29,7 +32,7 @@ describe('DELETE /image endpoint', () => {
     const response = await request.delete('/api/image');
 
     // check if the processed image is no longer available
-    check = checkForExistingImage('nature_thumbnail_200x200', 'output');
+    check = checkForExistingImage('test_clouds_thumbnail_200x200', 'output');
     expect(check).toBeFalsy();
     expect(response.status).toBe(200);
   });

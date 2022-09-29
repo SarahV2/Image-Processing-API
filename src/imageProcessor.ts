@@ -4,7 +4,7 @@ import { logger } from './utils/logging';
 import path from 'path';
 import sharp from 'sharp';
 
-const __basename = path.resolve(__dirname, '..');
+export const __basename = path.resolve(__dirname, '..');
 
 export const resizeImage = async (
   fileName: string,
@@ -58,7 +58,7 @@ export const processImage = async (
       // resize the image and return the processed image
       return await resizeImage(fileName, width, height);
     } else {
-      throw new Error('Image do not exist!');
+      throw new Error('Image does not exist!');
     }
   }
 };

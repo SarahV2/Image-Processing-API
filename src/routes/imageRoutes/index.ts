@@ -6,7 +6,7 @@ import { logger } from '../../utils/logging';
 const router = express.Router();
 
 router.get('/image', ApiAccessLogger, async (req: Request, res: Response) => {
-  const filename = req.query.filename as string;
+  let filename = req.query.filename as string;
   let width = req.query.width as string;
   let height = req.query.height as string;
 
@@ -15,6 +15,9 @@ router.get('/image', ApiAccessLogger, async (req: Request, res: Response) => {
   if (!height) height = '200';
 
   try {
+    if (filename) {
+      filename = filename.toLowerCase();
+    }
     const result = await processImage(
       filename,
       parseInt(width),
