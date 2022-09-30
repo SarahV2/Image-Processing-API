@@ -4,7 +4,7 @@
   "description": "image processing app",
   "main": "build/server.js",
   "scripts": {
-    "start": "nodemon app/src/server.ts",
+    "start": "npm run build && nodemon app/src/server.ts",
     "build": "npx tsc",
     "test": "npm run build && jasmine",
     "lint": "eslint --ext .js,.ts .",
