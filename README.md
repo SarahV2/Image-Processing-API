@@ -22,7 +22,7 @@ Install the dependencies by running the command ```npm install```
 ### Starting Up the server
 To get the server up and running, run the following command ```npm run start```
 
-## Images/ Files avaliable
+## Images / Files avaliable
 The current implementation is lmited to include the following files (resources included)
 
 <table>
@@ -30,27 +30,37 @@ The current implementation is lmited to include the following files (resources i
 <th>Filename</th>
 
 <tr>
-<td>1</td>
+<td>
+<a href="https://unsplash.com/photos/IWenq-4JHqo">1</a>
+</td>
 <td>snow</td>
 </tr>
 
 <tr>
-<td>2</td>
+<td>
+<a href="https://unsplash.com/photos/rCbdp8VCYhQ">2</a>
+</td>
 <td>stars</td>
 </tr>
 
 <tr>
-<td>3</td>
+<td>
+<a href="https://unsplash.com/photos/FIKD9t5_5zQ">3</a>
+</td>
 <td>clouds</td>
 </tr>
 
 <tr>
-<td>4</td>
+<td>
+<a href="https://unsplash.com/photos/FIKD9t5_5zQ">4</a>
+</td>
 <td>test_clouds</td>
 </tr>
 
 <tr>
-<td>5</td>
+<td>
+<a href="https://unsplash.com/photos/rCbdp8VCYhQ">5</a>
+</td>
 <td>test_stars</td>
 </tr>
 
@@ -99,4 +109,9 @@ Base URL: http://localhost:8000/api
 ## Testing
 Run the tests by ```npm run test```
 
+## Linting / Formatting
+* To Run esLint Check ```npm run lint```
+
+* To format the code with Prettier ``` npm run prettier ```
 ## Resources
+* <a href="https://blog.logrocket.com/linting-typescript-using-eslint-and-prettier/"> Linting in TypeScript using ESLint and Prettier </a>
